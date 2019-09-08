@@ -1,0 +1,163 @@
+clone:
+  git:
+    image: plugins/git
+    depth: 50
+    tags: true
+
+pipeline:
+ lot_102_scp:
+    image: appleboy/drone-scp
+    host:
+      - 172.16.82.102
+    port: 22
+    username: root
+    target: /home/docker/src/frontend_vue
+    secrets:
+      - source: lot_password
+        target: ssh_password
+    source:
+      - assets/
+      - build/
+      - config/
+      - src/
+      - index.html
+      - index2.html
+      - package-lock.json
+      - package.json
+      - cordova-hcp.json
+      - .babelrc
+      - .postcssrc.js
+    when:
+      branch: [ dev ]
+
+ lot_102_ssh:
+    image: appleboy/drone-ssh
+    host:
+      - 172.16.82.102
+    port: 22
+    username: root
+    command_timeout: 300
+    secrets:
+      - source: lot_password
+        target: ssh_password
+    script:
+      - rm -fr /home/docker/Gti_Lottery/www/frontend_vue
+      - cd /home/docker/src/frontend_vue
+      - npm install    # --registry=https://172.16.82.100:7001
+      - npm run build
+      - mv -v /home/docker/src/frontend_vue/dist /home/docker/Gti_Lottery/www/frontend_vue
+      - rm -fr /home/docker/src/frontend_vue
+    when:
+      branch: [ dev ]
+
+ lot_102_cordova_scp:
+    image: appleboy/drone-scp
+    host:
+      - 172.16.82.102
+    port: 22
+    username: root
+    target: /home/docker/src/buildCordova
+    secrets:
+      - source: lot_password
+        target: ssh_password
+    source:
+      - assets/
+      - build/
+      - config/
+      - src/
+      - index.html
+      - index2.html
+      - package-lock.json
+      - package.json
+      - cordova-hcp.json
+      - .babelrc
+      - .postcssrc.js
+    when:
+      branch: [ dev ]
+
+ lot_102_corduoa_ssh:
+    image: appleboy/drone-ssh
+    host:
+      - 172.16.82.102
+    port: 22
+    username: root
+    command_timeout: 600
+    secrets:
+      - source: lot_password
+        target: ssh_password
+    script:
+      - rm -fr /home/docker/Gti_Lottery/www/update/browser /home/docker/Gti_Lottery/www/update/android/lottery.apk
+      - rm -fr /home/docker/cordova_building_update/buildCordova /home/docker/cordova_building_apk/cordova/www
+      - mv -v /home/docker/src/buildCordova /home/docker/cordova_building_update
+      - cd /home/docker/cordova_building_update && sh lot_run.sh up
+      - sleep 90
+      - cp -av /home/docker/cordova_building_update/cordova/www /home/docker/cordova_building_apk/cordova
+      - mv -v /home/docker/cordova_building_update/cordova/www /home/docker/Gti_Lottery/www/update/browser
+      - cd /home/docker/cordova_building_apk && sh lot_run.sh up
+      - sleep 20
+      - mv -v /home/docker/cordova_building_apk/apk/app-debug.apk /home/docker/Gti_Lottery/www/update/android/lottery.apk
+    when:
+      branch: [ dev ]
+
+ lot_201_scp:
+    image: appleboy/drone-scp
+    host:
+      - 192.168.100.201
+    port: 22
+    username: root
+    target: /home/docker/src/frontend_vue
+    secrets:
+      - source: lot_201_password
+        target: ssh_password
+    source:
+      - assets/
+      - build/
+      - config/
+      - index.html
+      - package-lock.json
+      - package.json
+      - src/
+      - .babelrc
+      - .postcssrc.js
+    when:
+      branch: [ dev ]
+
+ lot_201_ssh:
+    image: appleboy/drone-ssh
+    host:
+      - 192.168.100.201
+    port: 22
+    username: root
+    command_timeout: 300
+    secrets:
+      - source: lot_201_password
+        target: ssh_password
+    script:
+      - rm -fr /home/docker/Gti_Lottery/www/frontend_vue
+      - cd /home/docker/src/frontend_vue/
+      - npm install    # --registry=https://172.16.82.100:7001
+      - npm run build
+      - mv -v /home/docker/src/frontend_vue/dist /home/docker/Gti_Lottery/www/frontend_vue
+      - rm -fr /home/docker/src/frontend_vue
+    when:
+      branch: [ dev ]
+
+ telegram:
+    image: appleboy/drone-telegram
+    token: 518811522:AAFJyl6tSDKHPgW7-cXVgCdPLC40sopr-5o
+    to: -304572122
+#####build {{build.number}}
+    message: >
+      {{#success build.status}}
+      更新者{{commit.Author}}
+        lot_demo succeeded. Good job.
+        branch:{{commit.branch}}
+      {{commit.Message}}{{Build.Link}}
+      {{else}}
+      更新者{{commit.Author}}
+        lot_demo failed. Fix me please.
+        branch:{{commit.branch}}
+      {{commit.Message}}{{Build.Link}}
+      {{/success}}
+    when:
+      status: [ success, failure ]
