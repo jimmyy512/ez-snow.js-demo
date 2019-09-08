@@ -38,7 +38,7 @@
       <h2 class="title">
         當螢幕大小發生變動時
       </h2>
-      <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(40, 43, 46); color: rgb(224, 226, 228);">    var ez=<span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">new</span> ezSnow(<span class="hljs-string" style="color: rgb(236, 118, 0);">"body"</span>,<span class="hljs-string" style="color: rgb(236, 118, 0);">"../../assets/image/snow2.png"</span>,<span class="hljs-number" style="color: rgb(255, 205, 34);">30</span>,<span class="hljs-number" style="color: rgb(255, 205, 34);">20</span>)
+      <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(40, 43, 46); color: rgb(224, 226, 228);">    var ez=<span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">new</span> ezSnow(<span class="hljs-string" style="color: rgb(236, 118, 0);">"body"</span>,<span class="hljs-string" style="color: rgb(236, 118, 0);">"./assets/image/snow2.png"</span>,<span class="hljs-number" style="color: rgb(255, 205, 34);">30</span>,<span class="hljs-number" style="color: rgb(255, 205, 34);">20</span>)
       .init();
 
       var resizeTimer
@@ -56,7 +56,7 @@
        <el-button class="showExampleBtn" plain size="medium" @click="showBigSnow()">點我顯示效果</el-button>
       <div class="example1" v-if="isShowBigSnow">
       </div>
-      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example1"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/snow.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>)
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example1"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"./assets/image/snow.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFullMode</span>(true)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setSnowNum</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">70</span>)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoDirection</span>(true)
@@ -69,7 +69,7 @@
       <el-button class="showExampleBtn" plain size="medium" @click="showCute()">點我顯示效果</el-button>
       <div class="example2" v-if="isShowCute">
       </div>
-      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example2"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/cute.gif"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">41</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">48</span>)
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example2"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"./assets/image/cute.gif"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">41</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">48</span>)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFullMode</span>(true)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setSnowNum</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">5</span>)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoDirection</span>(false,false)
@@ -85,7 +85,7 @@
       <el-button class="showExampleBtn" plain size="medium" @click="showRain()">點我顯示效果</el-button>
       <div class="example3" v-if="isShowRain">
       </div>
-      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example3"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/rain.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">41</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">48</span>)
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example3"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"./assets/image/rain.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">41</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">48</span>)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFullMode</span>(true)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setSnowNum</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">70</span>)
       <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoDirection</span>(false,true)
@@ -102,7 +102,7 @@
       <div class="example4" v-if="isShowStar">
       </div>
       <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">      <span class="hljs-built_in" style="color: rgb(170, 87, 60);">let</span> starDeg=<span class="hljs-built_in" style="color: rgb(170, 87, 60);">new</span> Array(<span class="hljs-number" style="color: rgb(170, 87, 60);">50</span>).fill(<span class="hljs-number" style="color: rgb(170, 87, 60);">0</span>);
-        <span class="hljs-built_in" style="color: rgb(170, 87, 60);">new</span> ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example4"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/star.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>)
+        <span class="hljs-built_in" style="color: rgb(170, 87, 60);">new</span> ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example4"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"./assets/image/star.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>)
         .setFullMode(<span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>)
         .setSnowNum(starDeg.<span class="hljs-built_in" style="color: rgb(170, 87, 60);">length</span>)
         .setAutoDirection(<span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span>,<span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span>)
@@ -280,7 +280,7 @@ export default {
     window.onresize=null;
   },
   mounted() {
-    console.log("test8");
+    console.log("ok");
     this.ez=new ezSnow("body","./assets/image/snow2.png",30,20)
     .init();
 
@@ -400,7 +400,7 @@ export default {
       this.isShowBigSnow=true;
 
       this.$nextTick(()=>{
-        this.bigSnow=new ezSnow(".example1","../../assets/image/snow.png",30,30)
+        this.bigSnow=new ezSnow(".example1","./assets/image/snow.png",30,30)
         .setFullMode(true)
         .setSnowNum(70)
         .setAutoDirection(true)
@@ -412,7 +412,7 @@ export default {
       this.isShowCute=true;
 
       this.$nextTick(()=>{
-        this.cute=new ezSnow(".example2","../../assets/image/cute.gif",41,48)
+        this.cute=new ezSnow(".example2","./assets/image/cute.gif",41,48)
         .setFullMode(true)
         .setSnowNum(5)
         .setAutoDirection(false,false)
@@ -427,7 +427,7 @@ export default {
       this.isShowRain=true;
 
       this.$nextTick(()=>{
-        this.rain=new ezSnow(".example3","../../assets/image/rain.png",41,48)
+        this.rain=new ezSnow(".example3","./assets/image/rain.png",41,48)
         .setFullMode(true)
         .setSnowNum(70)
         .setAutoDirection(false,true)
@@ -441,7 +441,7 @@ export default {
     showStar(){
       this.isShowStar=true;
       this.$nextTick(()=>{
-        this.star=new ezSnow(".example4","../../assets/image/star.png",30,30)
+        this.star=new ezSnow(".example4","./assets/image/star.png",30,30)
         .setFullMode(true)
         .setSnowNum(this.starDeg.length)
         .setAutoDirection(false,false)
