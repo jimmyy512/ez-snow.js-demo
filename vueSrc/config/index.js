@@ -70,7 +70,7 @@ module.exports = {
     assetsRoot: process.env.BUILD_MODE=="Cordova"?path.resolve(__dirname, '../../cordova/www/'):path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'assets',
     // assetsPublicPath: '/static/',
-    assetsPublicPath: '/ez-snow.js-demo',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
