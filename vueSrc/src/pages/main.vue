@@ -280,7 +280,7 @@ export default {
     window.onresize=null;
   },
   mounted() {
-    console.log("test3");
+    console.log("test4");
     this.ez=new ezSnow("body","../../assets/image/snow2.png",30,20)
     .init();
 
