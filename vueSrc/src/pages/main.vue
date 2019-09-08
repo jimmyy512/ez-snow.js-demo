@@ -85,8 +85,163 @@
       <el-button class="showExampleBtn" plain size="medium" @click="showRain()">點我顯示效果</el-button>
       <div class="example3" v-if="isShowRain">
       </div>
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example3"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/rain.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">41</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">48</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFullMode</span>(true)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setSnowNum</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">70</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoDirection</span>(false,true)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setRandomPhysics</span>(true,[<span class="hljs-number" style="color: rgb(170, 87, 60);">3</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>],[<span class="hljs-number" style="color: rgb(170, 87, 60);">4</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>])
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoScale</span>(true,<span class="hljs-number" style="color: rgb(170, 87, 60);">5</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFadeFactor</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">0.05</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFadeOutDistance</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">50</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .init</span>()<span class="hljs-comment" style="color: rgb(126, 120, 135);">;</span></pre>
+
+      <h2 class="title">
+        example 4 : 旋轉星星
+      </h2>
+      <el-button class="showExampleBtn" plain size="medium" @click="showStar()">點我顯示效果</el-button>
+      <div class="example4" v-if="isShowStar">
+      </div>
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">      <span class="hljs-built_in" style="color: rgb(170, 87, 60);">let</span> starDeg=<span class="hljs-built_in" style="color: rgb(170, 87, 60);">new</span> Array(<span class="hljs-number" style="color: rgb(170, 87, 60);">50</span>).fill(<span class="hljs-number" style="color: rgb(170, 87, 60);">0</span>);
+        <span class="hljs-built_in" style="color: rgb(170, 87, 60);">new</span> ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example4"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/star.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>)
+        .setFullMode(<span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>)
+        .setSnowNum(starDeg.<span class="hljs-built_in" style="color: rgb(170, 87, 60);">length</span>)
+        .setAutoDirection(<span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span>,<span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span>)
+        .setRandomPhysics(<span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">0</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">4</span>)
+        .setAutoScale(<span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">0.5</span>)
+        .setFadeFactor(<span class="hljs-number" style="color: rgb(170, 87, 60);">0.05</span>)
+        .setFadeOutDistance(<span class="hljs-number" style="color: rgb(170, 87, 60);">100</span>)
+        .setCustomEvent((it,index)=&gt;{
+          it.<span class="hljs-built_in" style="color: rgb(170, 87, 60);">style</span>.<span class="hljs-built_in" style="color: rgb(170, 87, 60);">transform</span>=
+            `rotate(${starDeg[index] &gt; <span class="hljs-number" style="color: rgb(170, 87, 60);">360</span> ? starDeg[index]<span class="hljs-symbol" style="color: rgb(42, 146, 146);">%</span>=<span class="hljs-number" style="color: rgb(170, 87, 60);">360</span> : starDeg[index]+=<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>}deg)`;
+        })
+        .init();</pre>
+
+      <h2 class="title">
+        問題1:
+      </h2>
+      <h3>如果再vue-cli 2.x 打包時會出現 ERROR<br> in assets/js/vendor.de21e3800f4b42989ca9.js from UglifyJs
+        Unexpected token: name (ezSnow)
+      </h3>
+      <h2 class="title">
+        解法:
+      </h2>
+      <h3>
+        打開webpack.base.conf 並在  module: { rules: [] }<br>
+        rules裡添加
+      </h3>
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">    {
+        <span class="hljs-attribute" style="color: rgb(190, 70, 120);">test</span>: /\.js$/,
+        loader: <span class="hljs-string" style="color: rgb(42, 146, 146);">'babel-loader'</span>,
+        include: [<span class="hljs-built_in" style="color: rgb(170, 87, 60);">resolve</span>(<span class="hljs-string" style="color: rgb(42, 146, 146);">'node_modules/lottery_front_lib'</span>)]
+      },</pre>
+
+      <h2 class="title">
+        API:
+      </h2>
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">/**
+    * 初始化
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@constructor</span>
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {string} appendDomName 
+    * 下雪要插入的DOM.
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {string} srcPath 
+    * 圖片路徑.
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} bgWidth 
+    * 產生後的圖片寬度.
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} bgHeight 
+    * 產生後的圖片高度.
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> destroy()
+    * 自我銷毀、並移除所有圖片，在vue使用時，記得在destroyed鉤子中，呼叫此函數。
+    * --
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> reInit()
+    * 會先自我銷毀一次，再重新初始化一次。
+    * 可搭配視窗大小縮放事件
+    this.resizeTimer=<span class="hljs-literal" style="color: rgb(170, 87, 60);">null</span>;
+    window.onresize=()=&gt;{
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer=setTimeout(()=&gt;{
+        ez.reInit();
+      },<span class="hljs-number" style="color: rgb(170, 87, 60);">250</span>);
+    }
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> setFullMode(isFullMode)
+    * 設定出生位子是否全屏
+    * --
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {boolean} isFullMode <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span>
+    *   <span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span> : 全屏隨機出生 , <span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span> : 最上邊出生.
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> setSnowNum(snowSum)
+    * 設定產生的圖片數量
+    * --
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} snowSum <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-number" style="color: rgb(170, 87, 60);">10</span>
+    * 可以填入你想要出現多少個圖片在畫面上
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> setFadeFactor(fadeFactor)
+    * fade漸層效果係數
+    * --
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} fadeFactor <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-number" style="color: rgb(170, 87, 60);">0.05</span>
+    * 數值越小漸層效果越久，反之越快
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> setFadeFactor(distance)
+    * 在圖片離最下方終點到一定距離時，開始出現漸出效果
+    * --
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} distance <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-number" style="color: rgb(170, 87, 60);">50</span>
+    * 單位為px像素，數值越小漸層效果越慢出現，反之越快出現。
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> setAutoDirection(isRandDireciotn,directionWay)
+    * 設定是否隨機轉向飄,如果關閉隨機轉向飄,請傳入飄的指定方向
+    * --
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {boolean} isRandDireciotn <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>
+    * 是否開啟隨機轉向飄,若為<span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>,<span class="hljs-meta" style="color: rgb(170, 87, 60);">@directionWay</span> 可以不用傳參數
+    * 若為<span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span>,<span class="hljs-meta" style="color: rgb(170, 87, 60);">@directionWay</span> 一定要傳參數,指定飄的方向
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {boolean} directionWay <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>
+    * <span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span> : 飄向左邊  , <span class="hljs-literal" style="color: rgb(170, 87, 60);">false</span> : 飄向右邊
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> setAutoScale(RandScaleMode,ScaleMax,ScaleMin)
+    * 設定是否隨機縮放大小
+    * --
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {boolean} RandScaleMode <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>
+    * 是否開啟隨機縮放大小
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} ScaleMax <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-number" style="color: rgb(170, 87, 60);">1.5</span>
+    * 最大係數
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} ScaleMin <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-number" style="color: rgb(170, 87, 60);">0.5</span>
+    * 最小係數
+    */
+
+    /** <span class="hljs-meta" style="color: rgb(170, 87, 60);">@function</span> setRandomPhysics(isPhyRandom,Vx,Vy)
+    * 此函數為多態函數,主要控制是否隨機，左、右、落下係數。 
+    * --
+    * 如果
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {boolean} isPhyRandom <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-literal" style="color: rgb(170, 87, 60);">true</span>
+    * 是否開啟隨機左、右、落下係數。
+    * 若參數 <span class="hljs-meta" style="color: rgb(170, 87, 60);">@isPhyRandom</span> 為 <span class="hljs-meta" style="color: rgb(170, 87, 60);">@false</span> Vx、 Vy 參數將會變成 <span class="hljs-meta" style="color: rgb(170, 87, 60);">@array</span> 型別
+      * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {<span class="hljs-keyword" style="color: rgb(149, 90, 231);">array</span>} Vx <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> [<span class="hljs-number" style="color: rgb(170, 87, 60);">0.4</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">0.1</span>]
+      * Vx[<span class="hljs-number" style="color: rgb(170, 87, 60);">0</span>] : x係數隨機最大值
+      * Vx[<span class="hljs-number" style="color: rgb(170, 87, 60);">1</span>] : x係數隨機最小值
+      * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {<span class="hljs-keyword" style="color: rgb(149, 90, 231);">array</span>} Vy <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> [<span class="hljs-number" style="color: rgb(170, 87, 60);">0.4</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">0.2</span>]
+      * Vy[<span class="hljs-number" style="color: rgb(170, 87, 60);">0</span>] : y係數隨機最大值
+      * Vy[<span class="hljs-number" style="color: rgb(170, 87, 60);">1</span>] : y係數隨機最小值
+    * 
+    * 若參數 <span class="hljs-meta" style="color: rgb(170, 87, 60);">@isPhyRandom</span> 為 <span class="hljs-meta" style="color: rgb(170, 87, 60);">@true</span> Vx、 Vy 參數將會變成 <span class="hljs-meta" style="color: rgb(170, 87, 60);">@number</span> 型別
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} Vx <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-number" style="color: rgb(170, 87, 60);">0</span>
+    * x係數值
+    * <span class="hljs-meta" style="color: rgb(170, 87, 60);">@param</span> {number} Vx <span class="hljs-meta" style="color: rgb(170, 87, 60);">@default</span> <span class="hljs-number" style="color: rgb(170, 87, 60);">0.2</span>
+    * y係數值
+    */</pre>
     </div>
 
+    <div class="footer">
+      ez-snow.js 由 Majitoo 編寫
+    </div>
   </div>
 </template>
 
@@ -100,10 +255,13 @@ export default {
       cute:null,
       bigSnow:null,
       rain:null,
+      star:null,
       resizeTimer:null,
       isShowCute:false,
       isShowBigSnow:false,
       isShowRain:false,
+      isShowStar:false,
+      starDeg:new Array(50).fill(0),
     };
   },
   created() {
@@ -114,6 +272,10 @@ export default {
       this.ez.destroy();
     if(this.cute!=null)
       this.cute.destroy();
+    if(this.rain!=null)
+      this.rain.destroy();
+    if(this.star!=null)
+      this.star.destroy();
     clearTimeout(this.resizeTimer);
     window.onresize=null;
   },
@@ -264,7 +426,7 @@ export default {
       this.isShowRain=true;
 
       this.$nextTick(()=>{
-        new ezSnow(".example3","../../assets/image/rain.png",41,48)
+        this.rain=new ezSnow(".example3","../../assets/image/rain.png",41,48)
         .setFullMode(true)
         .setSnowNum(70)
         .setAutoDirection(false,true)
@@ -272,6 +434,24 @@ export default {
         .setAutoScale(true,5,2)
         .setFadeFactor(0.05)
         .setFadeOutDistance(50)
+        .init();
+      })
+    },
+    showStar(){
+      this.isShowStar=true;
+      this.$nextTick(()=>{
+        this.star=new ezSnow(".example4","../../assets/image/star.png",30,30)
+        .setFullMode(true)
+        .setSnowNum(this.starDeg.length)
+        .setAutoDirection(false,false)
+        .setRandomPhysics(false,0,4)
+        .setAutoScale(true,2,0.5)
+        .setFadeFactor(0.05)
+        .setFadeOutDistance(100)
+        .setCustomEvent((it,index)=>{
+          it.style.transform=
+            `rotate(${this.starDeg[index] > 360 ? this.starDeg[index]%=360 : this.starDeg[index]+=2}deg)`;
+        })
         .init();
       })
     },
@@ -316,7 +496,8 @@ export default {
   }
   .example1,
   .example2,
-  .example3{
+  .example3,
+  .example4{
     width:100%;
     height:500px;
     background: rgb(40, 43, 46);
@@ -324,5 +505,12 @@ export default {
   .showExampleBtn{
     margin:15px;
   }
+}
+
+.footer{
+  background-color: #f1f1f1;
+  color:gray;
+  padding:20px;
+  text-align:center;
 }
 </style>
