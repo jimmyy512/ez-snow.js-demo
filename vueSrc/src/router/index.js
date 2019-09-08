@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import main from "src/pages/demo";
-// import main from "src/pages/main";
-import demo from "src/pages/demo";
-import test from "src/pages/test";
+import main from "src/pages/main";
+
 
 Vue.use(Router)
 export default new Router({
@@ -31,15 +29,6 @@ export default new Router({
     {
       path: '/main',
       component: main
-    },
-    {
-      path: '/test',
-      component: test
-    },
-    {
-      path: '/demo',
-      component: demo
-    },
-    
+    }
   ]
 })

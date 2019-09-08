@@ -3,12 +3,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router'
-import store from './store';
 import animate from 'animate.css';
 import '../assets/css/normalize.css';
-import '../assets/css/main.css';
 import '@/icons';
-
 
 //extension javascript
 Array.prototype.remove = function(val) {
@@ -24,7 +21,6 @@ Vue.use(ElementUI, { size: 'small' })
 new Vue({
   el: '#app',
   router,
-  store,
   components: { App },
   template: '<App/>',
   animate

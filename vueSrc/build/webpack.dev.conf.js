@@ -19,10 +19,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     clientLogLevel: 'warning',
     historyApiFallback: true,
     //熱加載開啟
-    // hot:true,
+    hot:true,
     //熱加載關閉
-    hot: false,
-    inline:false,
+    // hot: false,
+    // inline:false,
 
     compress: true,
     host: process.env.HOST || config.dev.host,

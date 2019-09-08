@@ -1,14 +1,23 @@
-.PC
-{
-    min-width:1300px;
+*{
+    -webkit-overflow-scrolling: touch;
 }
-.MOBILE
-{
-    min-width: 100%;
+
+body{
     height: 100%;
-    letter-spacing: 1px;
+    width: 100%;
+    font-family:Microsoft JhengHei;
 }
-.PC_OVER_FLOW_X_HIDDEN
-{
-    overflow-x: hidden;
+
+.container{
+    display: block;
+    max-width:1024px;
+    min-width:1024px;
+    margin:0 auto;
+}
+
+.clearf:after,
+.clearf:before{
+    content:" ";
+    display:block;
+    clear:both;
 }

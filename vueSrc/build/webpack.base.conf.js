@@ -42,6 +42,11 @@ module.exports = {
          exclude: /node_modules/
       },
       {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: [resolve('node_modules/ez-snow.js')]
+      },
+      {
         test: /\.svg$/,
         loader: 'svg-sprite-loader',
         include: [resolve('src/icons')],

@@ -1,629 +1,328 @@
 <template>
-  <div id="main" class="container">
-    <div class="test">
-      <div class="container">	
-           
-      </div>
-    
-
-
-    </div>
-
-
-
+  <div id="main">
     <div class="header">
-      <svg-icon icon-class="logo" class="logoIcon"></svg-icon>
-      <div class="Pc selectBar">
-        <div class="option">
-          <a href>首頁</a>
-        </div>
-        <div class="option">
-          <a href="#secondIntroAnchor">招募</a>
-        </div>
-        <div class="option">
-          <a href="#thirdIntroAnchor">產品</a>
-        </div>
-        <div class="option">
-          <a href="#contactAnchor">聯繫</a>
-        </div>
-      </div>
-      <div class="Mobile selectBar" @click="canShowMobileNavBar=!canShowMobileNavBar">
-        <div class="selectBarBtn">
-          <svg-icon icon-class="threeLine" class="threeLineIcon"></svg-icon>
-        </div>
-      </div>
-      <transition name="fade">
-        <div class="Mobile mobileNavBar" v-if="canShowMobileNavBar">
-          <a href="#">
-            <div class="option">
-              首頁
-            </div>
-          </a>
-          <a href="#secondIntroAnchor">
-            <div class="option">
-              招募
-            </div>
-          </a>
-
-          <a href="#thirdIntroAnchor">
-            <div class="option">
-              產品
-            </div>
-          </a>
-
-          <a href="#contactAnchor">
-            <div class="option">
-              聯繫
-            </div>
-          </a>
-        </div>
-      </transition>
+      <h2>ez-snow.js</h2>
+      <h3>一個能快速製作下雪效果的套件</h3>
+      <el-button plain @click="viewGitHubClick()">view on GitHub</el-button>
     </div>
 
-    <div class="introduct">
-      <div class="banner">
-        USERS
-        <div class="title1">全球APP產品代營運最佳選擇</div>
-        <div class="title2">協助您完成APP內容優化、營運方案的規劃與執行並找到最優質的用戶</div>
+    <div class="content container">
+      <h2 class="title">
+        特點
+      </h2>
+      <ol class="specialPoint">
+        <li>能夠簡單快速使用下雪特效。</li>
+        <li>提供已NPM的方式安裝套件。</li>
+        <li>能夠自定義速度與方向。</li>
+      </ol>
+
+      <h2 class="title">
+        安裝
+      </h2>
+      <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(68, 68, 68); color: rgb(221, 221, 221);">$ npm <span class="hljs-selector-tag" style="color: rgb(255, 255, 255); font-weight: 700;">i</span> ez-snow.js</pre>
+      <h2 class="title">
+        使用
+      </h2>
+      <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(40, 43, 46); color: rgb(224, 226, 228);">import ezSnow from <span class="hljs-string" style="color: rgb(236, 118, 0);">'ez-snow.js'</span>;
+  /**
+  * 初始化
+  * @constructor
+  * @<span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">param</span> {string} <span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">appendDomName</span> - 下雪要插入的DOM.
+  * @<span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">param</span> {string} <span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">srcPath</span> - 圖片路徑.
+  * @<span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">param</span> {number} <span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">bgWidth</span> - 產生後的圖片寬度.
+  * @<span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">param</span> {number} <span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">bgHeight</span> - 產生後的圖片高度.
+  */
+  new ezSnow(<span class="hljs-string" style="color: rgb(236, 118, 0);">"body"</span>,<span class="hljs-string" style="color: rgb(236, 118, 0);">"your image path"</span>,30,20).init();</pre>
+      <h3>此頁面的body下雪效果,就是使用上述代碼!</h3>
+
+      <h2 class="title">
+        當螢幕大小發生變動時
+      </h2>
+      <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(40, 43, 46); color: rgb(224, 226, 228);">    var ez=<span class="hljs-keyword" style="color: rgb(147, 199, 99); font-weight: 700;">new</span> ezSnow(<span class="hljs-string" style="color: rgb(236, 118, 0);">"body"</span>,<span class="hljs-string" style="color: rgb(236, 118, 0);">"../../assets/image/snow2.png"</span>,<span class="hljs-number" style="color: rgb(255, 205, 34);">30</span>,<span class="hljs-number" style="color: rgb(255, 205, 34);">20</span>)
+      .init();
+
+      var resizeTimer
+      <span class="hljs-built_in" style="color: rgb(140, 187, 173);">window</span>.onresize=<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{
+        clearTimeout(resizeTimer);
+        resizeTimer=setTimeout(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{
+          ez.reInit();
+        },<span class="hljs-number" style="color: rgb(255, 205, 34);">250</span>);
+      }</pre>
+      <h3>可以在視窗發生改變的事件中，呼叫reInit()函數，讓套件重新計算新的雪球位子。</h3>
+
+      <h2 class="title">
+        example 1 : 下大雪
+      </h2>
+       <el-button class="showExampleBtn" plain size="medium" @click="showBigSnow()">點我顯示效果</el-button>
+      <div class="example1" v-if="isShowBigSnow">
       </div>
-      <div
-        class="slogan"
-      >產品經營恆古不變的挑戰就是極大化漏斗模型的成效，WiseWorks 的夥伴是一群在產品運營領域深耕多年的專家，涵蓋遊戲，社群，內容與技術等多方面領域，我們幫助您的產品在茫茫流量中找到精準 TA，並且透過一系列的產品規劃建立用戶黏著度，讓您的 TA 對您的產品愛不釋手，最終幫助您獲取最大的產品利潤</div>
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example1"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/snow.png"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">30</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFullMode</span>(true)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setSnowNum</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">70</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoDirection</span>(true)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setRandomPhysics</span>(true,[<span class="hljs-number" style="color: rgb(170, 87, 60);">1</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">1</span>],[<span class="hljs-number" style="color: rgb(170, 87, 60);">4</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>])
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .init</span>()<span class="hljs-comment" style="color: rgb(126, 120, 135);">;</span></pre>
+
+      <h2 class="title">
+        example 2 : 跳舞松鼠
+      </h2>
+      <el-button class="showExampleBtn" plain size="medium" @click="showCute()">點我顯示效果</el-button>
+      <div class="example2" v-if="isShowCute">
+      </div>
+      <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">        new ezSnow(<span class="hljs-string" style="color: rgb(42, 146, 146);">".example2"</span>,<span class="hljs-string" style="color: rgb(42, 146, 146);">"../../assets/image/cute.gif"</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">41</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">48</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFullMode</span>(true)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setSnowNum</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">5</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoDirection</span>(false,false)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setRandomPhysics</span>(true,[<span class="hljs-number" style="color: rgb(170, 87, 60);">5</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">1</span>],[<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">0.5</span>])
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setAutoScale</span>(true,<span class="hljs-number" style="color: rgb(170, 87, 60);">2</span>,<span class="hljs-number" style="color: rgb(170, 87, 60);">0.5</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFadeFactor</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">0.03</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .setFadeOutDistance</span>(<span class="hljs-number" style="color: rgb(170, 87, 60);">50</span>)
+      <span class="hljs-meta" style="color: rgb(170, 87, 60);">    .init</span>()<span class="hljs-comment" style="color: rgb(126, 120, 135);">;</span></pre>
+
+      <h2 class="title">
+        example 3 : 下大雨
+      </h2>
+      <el-button class="showExampleBtn" plain size="medium" @click="showRain()">點我顯示效果</el-button>
+      <div class="example3" v-if="isShowRain">
+      </div>
     </div>
-
-    <div class="secondBG">
-      <div class="secondIntro">
-        <div class="AnchorBlock">
-          <div id="secondIntroAnchor"></div>
-        </div>
-        <div class="header">專業的咨詢與服務</div>
-        <div class="bottomInfo">
-          <div class="topBlock">讓專業的人給你最專業的服務</div>
-          <div
-            class="bottomBlock"
-          >為了跟進時代的潮流，當你打算將傳統企業轉型成電子商務服務時是否有感受到流量導入的困難與昂貴? 你只是需要的是一個熟悉市場及產品推廣的專業建議與團隊，來為你越過這個坡道以邁向成功。</div>
-        </div>
-
-        <div class="IntroBlockList clearf">
-          <div class="IntroBlockCentre">
-            <div class="IntroBlock clearf" v-for="(it,index) in secondIntroData" :key="index">
-              <img :src="it.logo" class="iconImage" />
-              <div class="title">{{it.title}}</div>
-              <div class="split"></div>
-              <div class="top">{{it.introductTop}}</div>
-              <div class="bottom">{{it.introductBottom}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="thirdBG">
-      <div class="thirdIntro">
-        <div class="AnchorBlock">
-          <div id="thirdIntroAnchor"></div>
-        </div>
-        <div class="header">我們的服務</div>
-        <div class="bottomInfo">
-          <div class="topBlock">創新的電子商務合作運模式</div>
-          <div class="bottomBlock">設計+定位+品牌+營運 一條龍服務</div>
-        </div>
-
-        <div class="IntroBlockList clearf">
-          <div class="IntroBlock clearf" v-for="(it,index) in thirdIntroData" :key="index">
-            <img :src="it.logo" class="iconImage" />
-            <div class="cardBody">
-              <div class="title">{{it.title}}</div>
-              <div class="cardBodyContent" v-html="it.introduct"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="AnchorBlock">
-        <div id="contactAnchor"></div>
-        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1519.6978141923596!2d121.54119769875753!3d25.05202365713825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abde3fedea27%3A0x8f885ef9a36cb23b!2zMTA0OTHlj7DljJfluILkuK3lsbHljYDljZfkuqzmnbHot6_kuInmrrUxNjjomZ8!5e0!3m2!1szh-TW!2stw!4v1563863593970!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-      </div>
-      <div class="footerBlocks clearf">
-        <div class="footerBlock" v-for="(it,index) in 3" :key="it">{{footerData[index]}}</div>
-      </div>
-      <div class="copyRight">© 2019 帷幄實業有限公司版權所有</div>
-    </div>
-
-
 
   </div>
 </template>
 
 <script>
 import {WOW} from 'wowjs';
+import ezSnow from 'ez-snow.js';
 export default {
   data() {
     return {
-      secondIntroData: [
-        {
-          logo: "assets/image/01-1.png",
-          title: "可靠與專業",
-          introductTop: "成功不能墨守成規",
-          introductBottom: "能對應狀況並靈活轉換操作手段"
-        },
-        {
-          logo: "assets/image/01-2.png",
-          title: "網路化思維",
-          introductTop: "追求點擊轉化極大率",
-          introductBottom: "全面性的線上曝光與線下導流"
-        },
-        {
-          logo: "assets/image/01-3.png",
-          title: "挑戰極限的精神",
-          introductTop: "除了好，還要更好",
-          introductBottom: "超越今天的成就是明天的目標"
-        },
-        {
-          logo: "assets/image/01-4.png",
-          title: "大數據分析",
-          introductTop: "精準的分析打入用戶",
-          introductBottom: "有效提昇自然流量與營運效益"
-        }
-      ],
-      thirdIntroData: [
-        {
-          logo: "assets/image/02-Y.png",
-          title: "品牌形象經營：",
-          introduct: "提升品牌能見度<br>增加粉絲信賴感<br>建立品牌專業形象"
-        },
-        {
-          logo: "assets/image/02-R.png",
-          title: "精準導流、導購：",
-          introduct:
-            "定期數據分析、成效追蹤。<br>瞄準受眾輪廓與痛點設計<br>內容導流至銷售管道"
-        },
-        {
-          logo: "assets/image/02-B.png",
-          title: "社群互動：",
-          introduct:
-            "增加粉絲黏著度與造訪意願大量提升觸及曝光產出優質內容，促進點擊與分享"
-        }
-      ],
-      footerData: [
-        "臺北市中山區南京東路3段168號14樓",
-        "02-27317797",
-        "service@wisework.io"
-      ],
-      canShowMobileNavBar:false
+      ez:null,
+      cute:null,
+      bigSnow:null,
+      rain:null,
+      resizeTimer:null,
+      isShowCute:false,
+      isShowBigSnow:false,
+      isShowRain:false,
     };
   },
   created() {
  
-		
-
-
+  },
+  destroyed() {
+    if(this.ez!=null)
+      this.ez.destroy();
+    if(this.cute!=null)
+      this.cute.destroy();
+    clearTimeout(this.resizeTimer);
+    window.onresize=null;
   },
   mounted() {
-    new WOW().init();
-    
-    
+    this.ez=new ezSnow("body","../../assets/image/snow2.png",30,20)
+    .init();
 
+    this.resizeTimer=null;
+    window.onresize=()=>{
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer=setTimeout(()=>{
+        ez.reInit();
+      },250);
+    }
 
+    /**
+    * 初始化
+    * @constructor
+    * @param {string} appendDomName 
+    * 下雪要插入的DOM.
+    * @param {string} srcPath 
+    * 圖片路徑.
+    * @param {number} bgWidth 
+    * 產生後的圖片寬度.
+    * @param {number} bgHeight 
+    * 產生後的圖片高度.
+    */
 
+    /** @function destroy()
+    * 自我銷毀、並移除所有圖片，在vue使用時，記得在destroyed鉤子中，呼叫此函數。
+    * --
+    */
+
+    /** @function reInit()
+    * 會先自我銷毀一次，再重新初始化一次。
+    * 可搭配視窗大小縮放事件
+    this.resizeTimer=null;
+    window.onresize=()=>{
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer=setTimeout(()=>{
+        ez.reInit();
+      },250);
+    }
+    */
+
+    /** @function setFullMode(isFullMode)
+    * 設定出生位子是否全屏
+    * --
+    * @param {boolean} isFullMode @default false
+    *   true : 全屏隨機出生 , false : 最上邊出生.
+    */
+
+    /** @function setSnowNum(snowSum)
+    * 設定產生的圖片數量
+    * --
+    * @param {number} snowSum @default 10
+    * 可以填入你想要出現多少個圖片在畫面上
+    */
+
+    /** @function setFadeFactor(fadeFactor)
+    * fade漸層效果係數
+    * --
+    * @param {number} fadeFactor @default 0.05
+    * 數值越小漸層效果越久，反之越快
+    */
+
+    /** @function setFadeFactor(distance)
+    * 在圖片離最下方終點到一定距離時，開始出現漸出效果
+    * --
+    * @param {number} distance @default 50
+    * 單位為px像素，數值越小漸層效果越慢出現，反之越快出現。
+    */
+
+    /** @function setAutoDirection(isRandDireciotn,directionWay)
+    * 設定是否隨機轉向飄,如果關閉隨機轉向飄,請傳入飄的指定方向
+    * --
+    * @param {boolean} isRandDireciotn @default true
+    * 是否開啟隨機轉向飄,若為true,@directionWay 可以不用傳參數
+    * 若為false,@directionWay 一定要傳參數,指定飄的方向
+    * @param {boolean} directionWay @default true
+    * true : 飄向左邊  , false : 飄向右邊
+    */
+
+    /** @function setAutoScale(RandScaleMode,ScaleMax,ScaleMin)
+    * 設定是否隨機縮放大小
+    * --
+    * @param {boolean} RandScaleMode @default true
+    * 是否開啟隨機縮放大小
+    * @param {number} ScaleMax @default 1.5
+    * 最大係數
+    * @param {number} ScaleMin @default 0.5
+    * 最小係數
+    */
+
+    /** @function setRandomPhysics(isPhyRandom,Vx,Vy)
+    * 此函數為多態函數,主要控制是否隨機，左、右、落下係數。 
+    * --
+    * 如果
+    * @param {boolean} isPhyRandom @default true
+    * 是否開啟隨機左、右、落下係數。
+    * 若參數 @isPhyRandom 為 @false Vx、 Vy 參數將會變成 @array 型別
+      * @param {array} Vx @default [0.4,0.1]
+      * Vx[0] : x係數隨機最大值
+      * Vx[1] : x係數隨機最小值
+      * @param {array} Vy @default [0.4,0.2]
+      * Vy[0] : y係數隨機最大值
+      * Vy[1] : y係數隨機最小值
+    * 
+    * 若參數 @isPhyRandom 為 @true Vx、 Vy 參數將會變成 @number 型別
+    * @param {number} Vx @default 0
+    * x係數值
+    * @param {number} Vx @default 0.2
+    * y係數值
+    */
+  },
+  methods:{
+    viewGitHubClick(){
+      window.open('https://github.com/jimmyy512/ez-snow.js');
+    },
+    showBigSnow(){
+      this.isShowBigSnow=true;
+
+      this.$nextTick(()=>{
+        this.bigSnow=new ezSnow(".example1","../../assets/image/snow.png",30,30)
+        .setFullMode(true)
+        .setSnowNum(70)
+        .setAutoDirection(true)
+        .setRandomPhysics(true,[1,1],[4,2])
+        .init();
+      })
+    },
+    showCute(){
+      this.isShowCute=true;
+
+      this.$nextTick(()=>{
+        this.cute=new ezSnow(".example2","../../assets/image/cute.gif",41,48)
+        .setFullMode(true)
+        .setSnowNum(5)
+        .setAutoDirection(false,false)
+        .setRandomPhysics(true,[5,1],[2,0.5])
+        .setAutoScale(true,2,0.5)
+        .setFadeFactor(0.03)
+        .setFadeOutDistance(150)
+        .init();
+      })
+    },
+    showRain(){
+      this.isShowRain=true;
+
+      this.$nextTick(()=>{
+        new ezSnow(".example3","../../assets/image/rain.png",41,48)
+        .setFullMode(true)
+        .setSnowNum(70)
+        .setAutoDirection(false,true)
+        .setRandomPhysics(true,[3,2],[4,2])
+        .setAutoScale(true,5,2)
+        .setFadeFactor(0.05)
+        .setFadeOutDistance(50)
+        .init();
+      })
+    },
   }
 };
 </script>
 
 <style lang="scss">
-//vue fade動畫
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-//當螢幕寬度小於這個時 開始RWD手機樣式
-$RWD_Width:"768px";
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-#main {
-  .header {
-    padding: 20px 20px;
-    .logoIcon {
-      width: 150px !important;
-      height: 40px !important;
-    }
-    // 當螢幕寬度小於768時切換Mobile版面
-    .Pc {
-      display: block;
-    }
-    .Mobile {
-      display: none;
-    }
-    @media screen and (max-width: $RWD_Width) {
-      .Pc {
-        display: none;
-      }
-      .Mobile {
-        display: block;
-      }
-    }
-    .Pc.selectBar {
-      float: right;
-      .option {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        font-size: 22px;
-        font-weight: bold;
-        a {
-          color: white;
-          text-decoration: none;
-        }
-        a:hover {
-          text-decoration: underline;
-          text-decoration-color: orange;
-        }
-      }
-    }
-    .Mobile.selectBar{
-      width: 60px;
-      float: right;
-      .selectBarBtn{
-        background-color:white;
-        border:1px gray solid;
-        padding: .25rem .75rem;
-        text-align: center;
-        cursor:pointer;
-        .threeLineIcon{
-          width:30px!important;
-          height:30px!important;
-        }
-      }
-    }
-    .mobileNavBar
-    {
-      position:absolute;
-      top: 70px;
-      left:0px;
-      padding: 20px;
-      width: 100%;
-      background-color:white;
-      a{
-        display:block;
-        color: #666;
-        text-decoration: none;
-        display: block;
-        height: 38px;
-        line-height: 38px;
-      }
-      a:first-child{
-        border: 2px solid orange;
-        border-top: 0px;
-        border-left: 0px;
-        border-right: 0px;
-      }
-      a:last-child{
-        margin-bottom:0px;
-      }
-      a:hover{
-        border: 2px solid orange;
-        border-top: 0px;
-        border-left: 0px;
-        border-right: 0px;
-      }
-    }
-  }
-  .introduct {
-    margin-top: 250px;
-    margin-left: 50px;
-    @media screen and (max-width: $RWD_Width)
-    {
-      margin: 0 auto;
-      margin-top:100px;
-      padding: 30px;
-    }
-    .banner {
-      @media screen and (max-width: $RWD_Width)
-      {
-        width: auto;
-        margin-top: 20px;
-        font-size: 80px;
-      }
-      position: relative;
-      color: #e6edfe;
-      width: 800px;
-      font-size: 120px;
-      line-height: 120px;
-      font-weight: bolder;
-      .title1 {
-        @media screen and (max-width: $RWD_Width)
-        {
-          font-size:22px;
-          line-height:22px;
-          top:70px;
-        }
-        position: absolute;
-        color: #2649a8;
-        font-size: 36px;
-        left: 0;
-        top: 30px;
-        font-weight: 700;
-      }
-      .title2 {
-        @media screen and (max-width: $RWD_Width)
-        {
-          font-size:12px;
-          line-height:18px;
-          margin-top:10px;
-          top:95px;
-        }
-        position: absolute;
-        color: #2649a8;
-        font-size: 24px;
-        left: 0;
-        top: 80px;
-      }
-    }
-    .slogan {
-      @media screen and (max-width: $RWD_Width)
-      {
-        width: 100%;
-        font-size: 14px;
-        margin-top: 24px;
-      }
-      width: 580px;
-      margin-top: 80px;
-      color: #9db4f2;
-      font-size: 20px;
-      line-height: 28px;
-      font-weight: normal;
-    }
-  }
+@import '../style/mixin.scss';
 
-  .secondBG {
-    background: url(../../assets/image/back.png) no-repeat;
-    .secondIntro {
-      @media screen and (max-width: $RWD_Width)
-      {
-        max-width: 80%;
-      }
-      max-width: 60%;
-      margin: 0 auto;
-      .AnchorBlock {
-        width: 100%;
-        #secondIntroAnchor {
-          width: 50px;
-          height: 5px;
-          background-color: #ffcd39;
-          margin: 0 auto;
-          margin-top: 50px;
-        }
-      }
-      .header {
-        @media screen and (max-width: $RWD_Width)
-        {
-          font-size:29px;
-        }
-        font-size: 40px;
-        line-height: 100px;
-        text-align: center;
-        padding: 0px 20px;
-        font-weight: 600;
-      }
-      .bottomInfo {
-        .topBlock,
-        .bottomBlock {
-          text-align: center;
-        }
-        .topBlock {
-          @media screen and (max-width: $RWD_Width)
-          {
-            font-size:20px;
-          }
-          font-weight: 800;
-          font-size: 24px;
-        }
-        .bottomBlock {
-          @media screen and (max-width: $RWD_Width)
-          {
-            font-size:16px;
-            margin-top:10px;
-          }
-          margin-top: 5px;
-          font-size: 20px;
-          font-weight: 600;
-        }
-      }
-      .IntroBlockList {
-        margin-top: 60px;
-        
-        .IntroBlock {
-          @media screen and (max-width: $RWD_Width)
-          {
-            width:50%;
-          }
-          text-align: center;
-          float: left;
-          width: 50%;
-          margin-top: 20px;
-          .iconImage {
-            width: 104px;
-            height: 90px;
-          }
-          .title {
-            font-size: 20px;
-            margin: 20px 0px;
-            font-weight: bold;
-          }
-          .split {
-            width: 50px;
-            height: 2px;
-            margin: 0 auto;
-            background: #d1ddfc;
-            margin-bottom: 20px;
-          }
-          .top,
-          .bottom {
-            font-weight: bold;
-            font-size: 16px;
-          }
-          .top {
-            margin-bottom: 10px;
-            font-weight: bold;
-          }
-          .bottom {
-            font-weight: bold;
-          }
-        }
-      }
+.hljs{
+  text-align:left;
+}
+.header{
+  text-align: center;
+  padding:30px;
+  color:whitesmoke;
+  background: #3868ab;
+  background-image: linear-gradient(120deg,#3868ab,#9a5b4d);
+  h2{
+    margin-top:0px;
+    font-size:2rem;
+  }
+}
+
+.content{
+  color:#606c71;
+  font-weight: 500;
+  h3{
+    margin:10px;
+    padding-left:10px;
+  }
+  .title{
+    color:#528aa0;
+    margin-top:35px;
+  }
+  .specialPoint
+  {
+    li{
+      padding:10px;
     }
   }
-
-  .thirdBG {
-    .thirdIntro {
-      max-width: 80%;
-      margin: 0 auto;
-      .AnchorBlock {
-        width: 100%;
-        #thirdIntroAnchor {
-          width: 50px;
-          height: 5px;
-          background-color: #ffcd39;
-          margin: 0 auto;
-          margin-top: 50px;
-        }
-      }
-      .header {
-        @media screen and (max-width: $RWD_Width)
-        {
-          font-size:30px;
-        }
-        font-size: 40px;
-        line-height: 100px;
-        text-align: center;
-        padding: 0px 20px;
-        font-weight: 600;
-      }
-      .bottomInfo {
-        .topBlock,
-        .bottomBlock {
-          text-align: center;
-        }
-        .topBlock {
-          @media screen and (max-width: $RWD_Width)
-          {
-            font-size:20px;
-          }
-          font-weight: 800;
-          font-size: 24px;
-        }
-        .bottomBlock {
-          @media screen and (max-width: $RWD_Width)
-          {
-            font-size:16px;
-          }
-          margin-top: 5px;
-          font-size: 20px;
-          font-weight: 600;
-        }
-      }
-      .IntroBlockList {
-        @media screen and (max-width: $RWD_Width)
-        {
-          text-align: center;
-          width: 80%;
-        }
-        margin-top: 20px;
-        margin: 20px auto;
-        .IntroBlock {
-          @media screen and (max-width: $RWD_Width)
-          {
-            max-width: 100%;
-            width:100%;
-            margin:0px;
-          }
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-          padding: 15px;
-          max-width: 32%;
-          float: left;
-          margin-right: 10px;
-          .iconImage {
-            width: 100%;
-            height: 100%;
-          }
-          .cardBody {
-            padding: 20px;
-            .title {
-              font-size: 1.25rem;
-              font-weight: 700;
-            }
-            .cardBodyContent {
-              font-size: 1rem;
-              margin-top: 10px;
-              margin-bottom: 40px;
-            }
-          }
-        }
-        .IntroBlock:last-child {
-          margin-right: 0px;
-        }
-      }
-    }
+  .example1,
+  .example2,
+  .example3{
+    width:100%;
+    height:500px;
+    background: rgb(40, 43, 46);
   }
-
-  .footer {
-    @media screen and (max-width: $RWD_Width)
-    {
-      background:#6781c9;
-      width: 80%;
-      margin: 0 auto;
-      height:auto;
-    }
-    
-    background: url(../../assets/image/blue.png) no-repeat;
-    height: 500px;
-    .AnchorBlock {
-      width: 100%;
-      #contactAnchor {
-        width: 50px;
-        height: 5px;
-        background-color: #ffcd39;
-        margin: 0 auto;
-        margin-top: 50px;
-      }
-    }
-    .footerBlocks {
-      @media screen and (max-width: $RWD_Width)
-      {
-        padding-top:50px;
-      }
-      padding-top: 250px;
-      max-width: 80%;
-      margin: 0 auto;
-      .footerBlock {
-        @media screen and (max-width: $RWD_Width)
-        {
-          width:100%;
-          margin-top:30px;
-        }
-        background: white url(../../assets/image/0424-1.png) left bottom
-          no-repeat;
-        height: 188px;
-        padding: 40px 10px 40px 130px;
-        width: 31%;
-        float: left;
-        margin-right: 10px;
-        word-wrap:break-word;
-      }
-    }
-    .copyRight {
-      text-align: center;
-      font-size: 18px;
-      font-weight: bolder;
-      margin-top: 10px;
-      padding-bottom: 10px;
-    }
+  .showExampleBtn{
+    margin:15px;
   }
 }
 </style>
