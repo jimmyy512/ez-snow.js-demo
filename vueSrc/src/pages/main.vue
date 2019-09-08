@@ -280,7 +280,6 @@ export default {
     window.onresize=null;
   },
   mounted() {
-    console.log("ok");
     this.ez=new ezSnow("body","./assets/image/snow2.png",30,20)
     .init();
 
@@ -288,7 +287,7 @@ export default {
     window.onresize=()=>{
       clearTimeout(this.resizeTimer);
       this.resizeTimer=setTimeout(()=>{
-        ez.reInit();
+        this.ez.reInit();
       },250);
     }
 
