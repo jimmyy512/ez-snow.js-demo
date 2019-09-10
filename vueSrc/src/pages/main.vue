@@ -129,7 +129,7 @@
       <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">      {
         <span class="hljs-attribute" style="color: rgb(255, 255, 170);">test</span>: /\.js$/,
         loader: <span class="hljs-string" style="color: rgb(162, 252, 162);">'babel-loader'</span>,
-        include: [<span class="hljs-built_in" style="color: rgb(255, 255, 170);">resolve</span>(<span class="hljs-string" style="color: rgb(162, 252, 162);">'node_modules/lottery_front_lib'</span>)]
+        include: [<span class="hljs-built_in" style="color: rgb(255, 255, 170);">resolve</span>(<span class="hljs-string" style="color: rgb(162, 252, 162);">'node_modules/ez-snow.js'</span>)]
       },</pre>
 
       <h2 class="title">

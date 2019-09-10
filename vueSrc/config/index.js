@@ -65,9 +65,9 @@ module.exports = {
     // assetsRoot: path.resolve(__dirname, '../dist'),
 
     // Template for index.html
-    index: process.env.BUILD_MODE=="Cordova"?path.resolve(__dirname, '../../cordova/www/index.html'):path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../../index.html'),
     // Paths
-    assetsRoot: process.env.BUILD_MODE=="Cordova"?path.resolve(__dirname, '../../cordova/www/'):path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../../'),
     assetsSubDirectory: 'assets',
     // assetsPublicPath: '/static/',
     assetsPublicPath: './',
