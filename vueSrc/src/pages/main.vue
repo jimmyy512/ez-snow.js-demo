@@ -448,7 +448,6 @@ export default {
         .setScale(0.2,1.5)
         .setFullMode(true)
         .setNum(70)
-        .setPhysics([0.2,1],2)
         .init();
       })
     },
