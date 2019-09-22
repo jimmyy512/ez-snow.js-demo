@@ -448,6 +448,7 @@ export default {
         .setScale(0.2,1.5)
         .setFullMode(true)
         .setNum(70)
+        .setPhysics([0.2,1],2)
         .init();
       })
     },
@@ -477,14 +478,6 @@ export default {
         .setPhysics([1,2],[1,3])
         .setScale(1,2.5)
         .init();
-
-  new ezSnow(".example3","./assets/image/rain.png")
-  .setFullMode(true)
-  .setNum(60)
-  .setAutoDirection(false,true)
-  .setPhysics([1,2],[1,3])
-  .setScale(1,2.5)
-  .init();
       })
     },
     showStar(){
