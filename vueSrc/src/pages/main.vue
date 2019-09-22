@@ -90,15 +90,15 @@
       <el-button class="showExampleBtn" plain size="medium" @click="showRain()" type="primary">Click Show</el-button>
       <div class="example3" v-if="isShowRain">
       </div>
-      <pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>.example3</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/rain.png</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span>
+     <pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>.example3</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/rain.png</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span>
   <span style='color:#308080; '>.</span>setFullMode<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#308080; '>)</span>
   <span style='color:#308080; '>.</span>setNum<span style='color:#308080; '>(</span><span style='color:#008c00; '>60</span><span style='color:#308080; '>)</span>
   <span style='color:#308080; '>.</span>setAutoDirection<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>false</span><span style='color:#308080; '>,</span><span style='color:#0f4d75; '>true</span><span style='color:#308080; '>)</span>
   <span style='color:#308080; '>.</span>setPhysics<span style='color:#308080; '>(</span><span style='color:#308080; '>[</span><span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>2</span><span style='color:#308080; '>]</span><span style='color:#308080; '>,</span><span style='color:#308080; '>[</span><span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>3</span><span style='color:#308080; '>]</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setScale<span style='color:#308080; '>(</span><span style='color:#008c00; '>2</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>5</span><span style='color:#308080; '>)</span>
+  <span style='color:#308080; '>.</span>setScale<span style='color:#308080; '>(</span><span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span><span style='color:#008000; '>2.5</span><span style='color:#308080; '>)</span>
   <span style='color:#308080; '>.</span>init<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
 </pre>
-<!--Created using ToHtml.com on 2019-09-22 13:00:29 UTC -->
+<!--Created using ToHtml.com on 2019-09-22 13:48:33 UTC -->
 
       <h2 class="title">
         example 4 : Rotate Star
@@ -475,8 +475,16 @@ export default {
         .setNum(60)
         .setAutoDirection(false,true)
         .setPhysics([1,2],[1,3])
-        .setScale(2,5)
+        .setScale(1,2.5)
         .init();
+
+  new ezSnow(".example3","./assets/image/rain.png")
+  .setFullMode(true)
+  .setNum(60)
+  .setAutoDirection(false,true)
+  .setPhysics([1,2],[1,3])
+  .setScale(1,2.5)
+  .init();
       })
     },
     showStar(){
