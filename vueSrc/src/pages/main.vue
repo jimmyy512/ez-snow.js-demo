@@ -308,6 +308,7 @@ export default {
     window.onresize=null;
   },
   mounted() {
+    console.log("update");
     this.ez=new ezSnow("body","./assets/image/snow2.png").init();
 
     this.resizeTimer=null;
