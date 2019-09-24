@@ -23,31 +23,27 @@
       <h2 class="title">
         使用
       </h2>
-    <pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#200080; font-weight:bold; '>import</span> ezSnow from <span style='color:#800000; '>'</span><span style='color:#1060b6; '>ez-snow.js</span><span style='color:#800000; '>'</span><span style='color:#406080; '>;</span>
-  <span style='color:#3f7f8f; '>/**</span>
-<span style='color:#3f7f8f; '>&#xa0;&#xa0;</span><span style='color:#7f9fbf; font-weight:bold; '>*</span><span style='color:#3f7f8f; '> </span><span style='color:#7f9fbf; font-weight:bold; '>@</span><span style='color:#3f7f8f; '>constructor</span>
-<span style='color:#3f7f8f; '>&#xa0;&#xa0;</span><span style='color:#7f9fbf; font-weight:bold; '>*</span><span style='color:#3f7f8f; '> </span><span style='color:#7f9fbf; font-weight:bold; '>@param</span><span style='color:#3f7f8f; '> {string} appendDomName </span><span style='color:#7f9fbf; font-weight:bold; '>-</span><span style='color:#3f7f8f; '> DOM element.</span>
-<span style='color:#3f7f8f; '>&#xa0;&#xa0;</span><span style='color:#7f9fbf; font-weight:bold; '>*</span><span style='color:#3f7f8f; '> </span><span style='color:#7f9fbf; font-weight:bold; '>@param</span><span style='color:#3f7f8f; '> {string} srcPath </span><span style='color:#7f9fbf; font-weight:bold; '>-</span><span style='color:#3f7f8f; '> Image path.</span>
-<span style='color:#3f7f8f; '>&#xa0;&#xa0;*/</span>
-  <span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>body</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/snow2.png</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>init<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-</pre>
-<!--Created using ToHtml.com on 2019-09-22 13:09:28 UTC -->
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">  /**
+  * @constructor
+  * @<span class="hljs-keyword" style="color: rgb(252, 194, 140);">param</span> {string} <span class="hljs-keyword" style="color: rgb(252, 194, 140);">DOM</span> <span class="hljs-keyword" style="color: rgb(252, 194, 140);">element</span>.
+  * @<span class="hljs-keyword" style="color: rgb(252, 194, 140);">param</span> {string} <span class="hljs-keyword" style="color: rgb(252, 194, 140);">Image</span> <span class="hljs-keyword" style="color: rgb(252, 194, 140);">path</span>.
+  */
+  import ezSnow from <span class="hljs-string" style="color: rgb(162, 252, 162);">'ez-snow.js'</span>;
+  new ezSnow(<span class="hljs-string" style="color: rgb(162, 252, 162);">"body"</span>,<span class="hljs-string" style="color: rgb(162, 252, 162);">"./assets/image/snow2.png"</span>).init();</pre>
       <h3>此頁面的body下雪效果,就是使用上述代碼!</h3>
 
       <h2 class="title">
         當螢幕大小發生變動時:
       </h2>
-<pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#200080; font-weight:bold; '>var</span> ez<span style='color:#308080; '>=</span><span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>body</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/snow2.png</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>init<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">  var ez=<span class="hljs-keyword" style="color: rgb(252, 194, 140);">new</span> ezSnow(<span class="hljs-string" style="color: rgb(162, 252, 162);">"body"</span>,<span class="hljs-string" style="color: rgb(162, 252, 162);">"./assets/image/snow2.png"</span>)
+  .init();
 
-  window<span style='color:#308080; '>.</span>onresize<span style='color:#308080; '>=</span><span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#308080; '>=</span><span style='color:#308080; '>></span><span style='color:#406080; '>{</span>
-    <span style='color:#200080; font-weight:bold; '>clearTimeout</span><span style='color:#308080; '>(</span>resizeTimer<span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-    <span style='color:#200080; font-weight:bold; '>var</span> resizeTimer<span style='color:#308080; '>=</span><span style='color:#200080; font-weight:bold; '>setTimeout</span><span style='color:#308080; '>(</span><span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#308080; '>=</span><span style='color:#308080; '>></span><span style='color:#406080; '>{</span>
-      ez<span style='color:#308080; '>.</span>reInit<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-    <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>250</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-  <span style='color:#406080; '>}</span>
-</pre>
-<!--Created using ToHtml.com on 2019-09-22 13:08:33 UTC -->
+  <span class="hljs-built_in" style="color: rgb(255, 255, 170);">window</span>.onresize=<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{
+    clearTimeout(resizeTimer);
+    var resizeTimer=setTimeout(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{
+      ez.reInit();
+    },<span class="hljs-number" style="color: rgb(211, 99, 99);">250</span>);
+  }</pre>
       <h3>在視窗發生改變的事件中，呼叫reInit()函數,</h3>
       <h3>讓套件重新計算新的雪球位置,</h3>
       <h3>可以在本頁面中嘗試縮放網頁視窗。</h3>
@@ -58,13 +54,11 @@
        <el-button class="showExampleBtn" plain size="medium" @click="showBigSnow()" type="primary">Click Show</el-button>
       <div class="example1" v-if="isShowBigSnow">
       </div>
-<pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>.example1</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/snow.png</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setScale<span style='color:#308080; '>(</span><span style='color:#008000; '>0.2</span><span style='color:#308080; '>,</span><span style='color:#008000; '>1.5</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setFullMode<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setNum<span style='color:#308080; '>(</span><span style='color:#008c00; '>70</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>init<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-</pre>
-<!--Created using ToHtml.com on 2019-09-22 13:07:33 UTC -->
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">  new ezSnow(<span class="hljs-string" style="color: rgb(162, 252, 162);">".example1"</span>,<span class="hljs-string" style="color: rgb(162, 252, 162);">"./assets/image/snow.png"</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setScale</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">0.2</span>,<span class="hljs-number" style="color: rgb(211, 99, 99);">1.5</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setFullMode</span>(true)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setNum</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">70</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .init</span>()<span class="hljs-comment" style="color: rgb(136, 136, 136);">;</span></pre>
 
       <h2 class="title">
         example 2 : Squirrel dancing
@@ -72,17 +66,15 @@
       <el-button class="showExampleBtn" plain size="medium" @click="showCute()" type="primary">Click Show</el-button>
       <div class="example2" v-if="isShowCute">
       </div>
-     <pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>.example2</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/cute.gif</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setFullMode<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setNum<span style='color:#308080; '>(</span><span style='color:#008c00; '>10</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setAutoDirection<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>false</span><span style='color:#308080; '>,</span><span style='color:#0f4d75; '>false</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setPhysics<span style='color:#308080; '>(</span><span style='color:#308080; '>[</span><span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>3</span><span style='color:#308080; '>]</span><span style='color:#308080; '>,</span><span style='color:#308080; '>[</span><span style='color:#008000; '>0.2</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>3</span><span style='color:#308080; '>]</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setScale<span style='color:#308080; '>(</span><span style='color:#008000; '>0.6</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setLeaveFadeFactor<span style='color:#308080; '>(</span><span style='color:#008000; '>0.01</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setFadeOutDistance<span style='color:#308080; '>(</span><span style='color:#008c00; '>200</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>init<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-</pre>
-<!--Created using ToHtml.com on 2019-09-22 13:07:10 UTC -->
+     <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">  new ezSnow(<span class="hljs-string" style="color: rgb(162, 252, 162);">".example2"</span>,<span class="hljs-string" style="color: rgb(162, 252, 162);">"./assets/image/cute.gif"</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setFullMode</span>(true)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setNum</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">10</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setAutoDirection</span>(false,false)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setPhysics</span>([<span class="hljs-number" style="color: rgb(211, 99, 99);">1</span>,<span class="hljs-number" style="color: rgb(211, 99, 99);">3</span>],[<span class="hljs-number" style="color: rgb(211, 99, 99);">0.2</span>,<span class="hljs-number" style="color: rgb(211, 99, 99);">3</span>])
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setScale</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">0.6</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setLeaveFadeFactor</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">0.01</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setFadeOutDistance</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">200</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .init</span>()<span class="hljs-comment" style="color: rgb(136, 136, 136);">;</span></pre>
 
       <h2 class="title">
         example 3 : Raining
@@ -90,15 +82,13 @@
       <el-button class="showExampleBtn" plain size="medium" @click="showRain()" type="primary">Click Show</el-button>
       <div class="example3" v-if="isShowRain">
       </div>
-     <pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>.example3</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/rain.png</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setFullMode<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setNum<span style='color:#308080; '>(</span><span style='color:#008c00; '>60</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setAutoDirection<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>false</span><span style='color:#308080; '>,</span><span style='color:#0f4d75; '>true</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setPhysics<span style='color:#308080; '>(</span><span style='color:#308080; '>[</span><span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>2</span><span style='color:#308080; '>]</span><span style='color:#308080; '>,</span><span style='color:#308080; '>[</span><span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>3</span><span style='color:#308080; '>]</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>setScale<span style='color:#308080; '>(</span><span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span><span style='color:#008000; '>2.5</span><span style='color:#308080; '>)</span>
-  <span style='color:#308080; '>.</span>init<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-</pre>
-<!--Created using ToHtml.com on 2019-09-22 13:48:33 UTC -->
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">  new ezSnow(<span class="hljs-string" style="color: rgb(162, 252, 162);">".example3"</span>,<span class="hljs-string" style="color: rgb(162, 252, 162);">"./assets/image/rain.png"</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setFullMode</span>(true)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setNum</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">60</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setAutoDirection</span>(false,true)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setPhysics</span>([<span class="hljs-number" style="color: rgb(211, 99, 99);">1</span>,<span class="hljs-number" style="color: rgb(211, 99, 99);">2</span>],[<span class="hljs-number" style="color: rgb(211, 99, 99);">1</span>,<span class="hljs-number" style="color: rgb(211, 99, 99);">3</span>])
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .setScale</span>(<span class="hljs-number" style="color: rgb(211, 99, 99);">1</span>,<span class="hljs-number" style="color: rgb(211, 99, 99);">2.5</span>)
+<span class="hljs-meta" style="color: rgb(252, 155, 155);">  .init</span>()<span class="hljs-comment" style="color: rgb(136, 136, 136);">;</span></pre>
 
       <h2 class="title">
         example 4 : Rotate Star
@@ -106,20 +96,18 @@
       <el-button class="showExampleBtn" plain size="medium" @click="showStar()" type="primary">Click Show</el-button>
       <div class="example4" v-if="isShowStar">
       </div>
-      <pre style='color:#000020;background:#f6f8ff;'>    <span style='color:#200080; font-weight:bold; '>let</span> starDeg<span style='color:#308080; '>=</span><span style='color:#200080; font-weight:bold; '>new</span> <span style='color:#007d45; '>Array</span><span style='color:#308080; '>(</span><span style='color:#008c00; '>50</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>fill<span style='color:#308080; '>(</span><span style='color:#008c00; '>0</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-    <span style='color:#200080; font-weight:bold; '>new</span> ezSnow<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>.example4</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>./assets/image/star.png</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span>
-    <span style='color:#308080; '>.</span>setFullMode<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#308080; '>)</span>
-    <span style='color:#308080; '>.</span>setNum<span style='color:#308080; '>(</span>starDeg<span style='color:#308080; '>.</span><span style='color:#200080; font-weight:bold; '>length</span><span style='color:#308080; '>)</span>
-    <span style='color:#308080; '>.</span>setAutoDirection<span style='color:#308080; '>(</span><span style='color:#0f4d75; '>false</span><span style='color:#308080; '>,</span><span style='color:#0f4d75; '>false</span><span style='color:#308080; '>)</span>
-    <span style='color:#308080; '>.</span>setPhysics<span style='color:#308080; '>(</span><span style='color:#008c00; '>0</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>4</span><span style='color:#308080; '>)</span>
-    <span style='color:#308080; '>.</span>setScale<span style='color:#308080; '>(</span><span style='color:#008000; '>0.5</span><span style='color:#308080; '>)</span>
-    <span style='color:#308080; '>.</span>setCustomEvent<span style='color:#308080; '>(</span><span style='color:#308080; '>(</span>it<span style='color:#308080; '>,</span><span style='color:#007d45; '>index</span><span style='color:#308080; '>)</span><span style='color:#308080; '>=</span><span style='color:#308080; '>></span><span style='color:#406080; '>{</span>
-      it<span style='color:#308080; '>.</span>style<span style='color:#308080; '>.</span>transform<span style='color:#308080; '>=</span>
-        <span style='color:#800000; '>`</span><span style='color:#1060b6; '>rotate(</span><span style='color:#800000; '>${</span><span style='color:#007d45; '>starDeg</span><span style='color:#308080; '>[</span><span style='color:#007d45; '>index</span><span style='color:#308080; '>]</span><span style='color:#007d45; '> </span><span style='color:#308080; '>></span><span style='color:#007d45; '> </span><span style='color:#008c00; '>360</span><span style='color:#007d45; '> </span><span style='color:#406080; '>?</span><span style='color:#007d45; '> starDeg</span><span style='color:#308080; '>[</span><span style='color:#007d45; '>index</span><span style='color:#308080; '>]</span><span style='color:#308080; '>%=</span><span style='color:#008c00; '>360</span><span style='color:#007d45; '> </span><span style='color:#406080; '>:</span><span style='color:#007d45; '> starDeg</span><span style='color:#308080; '>[</span><span style='color:#007d45; '>index</span><span style='color:#308080; '>]</span><span style='color:#308080; '>+=</span><span style='color:#008c00; '>2</span><span style='color:#800000; '>}</span><span style='color:#1060b6; '>deg)</span><span style='color:#800000; '>`</span><span style='color:#406080; '>;</span>
-    <span style='color:#406080; '>}</span><span style='color:#308080; '>)</span>
-    <span style='color:#308080; '>.</span>init<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-</pre>
-<!--Created using ToHtml.com on 2019-09-22 13:05:15 UTC -->
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">    <span class="hljs-keyword" style="color: rgb(252, 194, 140);">new</span> ezSnow(<span class="hljs-string" style="color: rgb(162, 252, 162);">".example4"</span>,<span class="hljs-string" style="color: rgb(162, 252, 162);">"./assets/image/star.png"</span>)
+    .setFullMode(<span class="hljs-literal" style="color: rgb(252, 194, 140);">true</span>)
+    .setNum(<span class="hljs-keyword" style="color: rgb(252, 194, 140);">this</span>.starDeg.length)
+    .setAutoDirection(<span class="hljs-literal" style="color: rgb(252, 194, 140);">false</span>,<span class="hljs-literal" style="color: rgb(252, 194, 140);">false</span>)
+    .setPhysics(<span class="hljs-number" style="color: rgb(211, 99, 99);">0</span>,<span class="hljs-number" style="color: rgb(211, 99, 99);">4</span>)
+    .setScale(<span class="hljs-number" style="color: rgb(211, 99, 99);">0.5</span>)
+    .setOpacity(<span class="hljs-number" style="color: rgb(211, 99, 99);">0.3</span>)
+    .setCustomEvent(<span class="hljs-function"><span class="hljs-params">(it,index)</span>=&gt;</span>{
+      it.style.transform=
+        `<span class="javascript">rotate(${<span class="hljs-keyword" style="color: rgb(252, 194, 140);">this</span>.starDeg[index] &gt; <span class="hljs-number" style="color: rgb(211, 99, 99);">360</span> ? <span class="hljs-keyword" style="color: rgb(252, 194, 140);">this</span>.starDeg[index]%=<span class="hljs-number" style="color: rgb(211, 99, 99);">360</span> : <span class="hljs-keyword" style="color: rgb(252, 194, 140);">this</span>.starDeg[index]+=(<span class="hljs-built_in" style="color: rgb(255, 255, 170);">Math</span>.random()*<span class="hljs-number" style="color: rgb(211, 99, 99);">5</span>)}deg)</span>`;
+    })
+    .init();</pre>
 
       <h2 class="title">
         問題1:
@@ -134,13 +122,11 @@
         打開webpack.base.conf 並在  module: { rules: [] }<br>
         rules裡添加
       </h3>
-<pre style='color:#000020;background:#f6f8ff;'>  <span style='color:#406080; '>{</span>
-    <span style='color:#200080; font-weight:bold; '>test</span><span style='color:#308080; '>:</span><span style='color:#1060b6; '> </span><span style='color:#800000; '>/</span><span style='color:#0f69ff; '>\.</span><span style='color:#1060b6; '>js</span><span style='color:#308080; '>$</span><span style='color:#800000; '>/</span><span style='color:#308080; '>,</span>
-    loader<span style='color:#406080; '>:</span> <span style='color:#800000; '>'</span><span style='color:#1060b6; '>babel-loader</span><span style='color:#800000; '>'</span><span style='color:#308080; '>,</span>
-    include<span style='color:#406080; '>:</span> <span style='color:#308080; '>[</span>resolve<span style='color:#308080; '>(</span><span style='color:#800000; '>'</span><span style='color:#1060b6; '>node_modules/ez-snow.js</span><span style='color:#800000; '>'</span><span style='color:#308080; '>)</span><span style='color:#308080; '>]</span>
-  <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
-</pre>
-<!--Created using ToHtml.com on 2019-09-22 13:10:03 UTC -->
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51, 51, 51); color: rgb(255, 255, 255);">  {
+    <span class="hljs-attribute" style="color: rgb(255, 255, 170);">test</span>: /\.js$/,
+    loader: <span class="hljs-string" style="color: rgb(162, 252, 162);">'babel-loader'</span>,
+    include: [<span class="hljs-built_in" style="color: rgb(255, 255, 170);">resolve</span>(<span class="hljs-string" style="color: rgb(162, 252, 162);">'node_modules/ez-snow.js'</span>)]
+  },</pre>
 
       <h2 class="title">
         API:
@@ -308,7 +294,6 @@ export default {
     window.onresize=null;
   },
   mounted() {
-    console.log("update");
     this.ez=new ezSnow("body","./assets/image/snow2.png").init();
 
     this.resizeTimer=null;
@@ -318,11 +303,11 @@ export default {
         this.ez.reInit();
       },250);
     }
-
+  
     /**
     * @constructor
-    * @param {string} appendDomName DOM element.
-    * @param {string} srcPath Image path.
+    * @param {string} DOM_element.
+    * @param {string} Image_path.
     */
 
     /** @function destroy()
@@ -346,21 +331,21 @@ export default {
     * 設定出生位置是否全屏
     * 
       * @param {boolean} isFullMode @default false
-      *   true  : 全屏隨機出生
-      *   false : 最上邊出生
+      * true  : 全屏隨機出生
+      * false : 最上邊出生
     */
 
     /** @function setNum(snowSum)
     * 設定產生的圖片數量
     * 
       * @param {number} snowSum @default 10
-      * 可以填入你想要出現多少個圖片在畫面上
+      *  可以填入你想要出現多少個圖片在畫面上
     */
 
     /** @function setOpacity(fade)
     * 圖片透明細數
     * 
-      * @param {number} fade @default 1 @range 0~1
+      * @param {number} fade @default 1
       * 數值範圍區間0~1,數值越小越透明
     */
 
@@ -433,9 +418,8 @@ export default {
       * @param {array} Vy @default [0.1,0.35]
       * Vy[0] : y係數隨機最小值
       * Vy[1] : y係數隨機最大值
-    * 
-
     */
+
   },
   methods:{
     viewGitHubClick(){
@@ -489,6 +473,7 @@ export default {
         .setAutoDirection(false,false)
         .setPhysics(0,4)
         .setScale(0.5)
+        .setOpacity(0.3)
         .setCustomEvent((it,index)=>{
           it.style.transform=
             `rotate(${this.starDeg[index] > 360 ? this.starDeg[index]%=360 : this.starDeg[index]+=2}deg)`;
